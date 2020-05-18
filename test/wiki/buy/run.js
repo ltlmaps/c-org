@@ -9,7 +9,6 @@ contract("wiki / buy / run", (accounts) => {
     contracts = await deployDat(accounts, {
       initGoal: 0,
       feeBasisPoints: 10,
-      autoBurn: true,
     });
 
     await approveAll(contracts, accounts);
