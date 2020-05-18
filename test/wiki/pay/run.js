@@ -51,7 +51,7 @@ contract("wiki / pay / run", (accounts) => {
       );
       totalSupplyBefore = new BigNumber(await contracts.dat.totalSupply());
 
-      await contracts.dat.pay(investor, payAmount, {
+      await contracts.dat.pay(payAmount, {
         from: investor,
         value: payAmount,
       });
@@ -118,7 +118,7 @@ contract("wiki / pay / run", (accounts) => {
       );
       burnedSupplyBefore = new BigNumber(await contracts.dat.burnedSupply());
 
-      await contracts.dat.pay(investor, payAmount, {
+      await contracts.dat.pay(payAmount, {
         from: investor,
         value: payAmount,
       });
@@ -167,7 +167,7 @@ contract("wiki / pay / run", (accounts) => {
         }
       );
 
-      await contracts.dat.pay(investor, payAmount, {
+      await contracts.dat.pay(payAmount, {
         from: investor,
         value: payAmount,
       });
@@ -217,7 +217,7 @@ contract("wiki / pay / run", (accounts) => {
 
       burnedSupplyBefore = new BigNumber(await contracts.dat.burnedSupply());
 
-      await contracts.dat.pay(investor, payAmount, {
+      await contracts.dat.pay(payAmount, {
         from: investor,
         value: payAmount,
       });

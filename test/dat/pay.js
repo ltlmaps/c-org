@@ -42,7 +42,7 @@ contract("dat / pay", (accounts) => {
         await contracts.dat.balanceOf(investor)
       );
       payValue = new BigNumber(await contracts.dat.estimatePayValue(payAmount));
-      await contracts.dat.pay(investor, payAmount, {
+      await contracts.dat.pay(payAmount, {
         from: investor,
         value: payAmount,
       });
@@ -58,7 +58,7 @@ contract("dat / pay", (accounts) => {
   });
 
   it("can make a tiny payment", async () => {
-    await contracts.dat.pay(investor, "1", {
+    await contracts.dat.pay("1", {
       from: investor,
       value: "1",
     });
@@ -81,7 +81,7 @@ contract("dat / pay", (accounts) => {
     });
     await approveAll(contracts, accounts);
     await reverts(
-      contracts.dat.pay(accounts[0], "0", {
+      contracts.dat.pay("0", {
         from: accounts[0],
       }),
       "MISSING_CURRENCY"
@@ -107,7 +107,7 @@ contract("dat / pay", (accounts) => {
     });
 
     it("Can pay even if account is restricted", async () => {
-      await contracts.dat.pay(investor, payAmount, {
+      await contracts.dat.pay(payAmount, {
         from: investor,
         value: payAmount,
       });
@@ -134,7 +134,7 @@ contract("dat / pay", (accounts) => {
           await contracts.dat.estimatePayValue(payAmount)
         );
 
-        const tx = await contracts.dat.pay(investor, payAmount, {
+        const tx = await contracts.dat.pay(payAmount, {
           from: investor,
           value: payAmount,
         });

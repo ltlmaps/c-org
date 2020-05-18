@@ -19,7 +19,7 @@ contract("dat / noWhitelist", (accounts) => {
       }
     }
 
-    await contracts.dat.pay(investor, "100000000000000000000", {
+    await contracts.dat.pay("100000000000000000000", {
       value: "100000000000000000000",
       from: investor,
     });
